@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
 import { AnimatePresence, MotionConfig, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowDown, ArrowUpRight, CalendarDays, Check, CheckCheck, Heart, MapPin, Plus, X } from 'lucide-react';
@@ -152,6 +152,26 @@ function Families(){
   </section>;
 }
 
+
+const weddingMoments=[
+ {image:'/images/haldi-watercolor-v3.webp',label:'The Haldi',title:'A little sunshine.',description:'Marigold mornings, golden smiles, and the people who make everything brighter.',date:'24 NOVEMBER · MORNING'},
+ {image:'/images/sangeet-watercolor-v3.webp',label:'The Sangeet',title:'Dancing into forever.',description:'An evening of music, family performances, and one more song before we call it a night.',date:'24 NOVEMBER · EVENING'},
+ {image:'/images/palace-watercolor-v2.webp',label:'The Wedding',title:'Our kind of always.',description:'Seven steps, a thousand blessings, and a promise to choose each other every day.',date:'25 NOVEMBER · THE WEDDING'},
+ {image:'/images/family-watercolor-v2.webp',label:'Our people',title:'All the love around us.',description:'Two families, countless stories, and a celebration made complete by you.',date:'TOGETHER WITH OUR FAMILIES'},
+];
+function WeddingGallery(){
+ const [selected,setSelected]=useState<number|null>(null);
+ const closeGallery=useCallback(()=>setSelected(null),[]);
+ const reduced=useReducedMotion();
+ useEffect(()=>{if(selected===null)return;const onKey=(event:KeyboardEvent)=>{if(event.key==='ArrowRight'){event.preventDefault();setSelected(i=>i===null?null:(i+1)%weddingMoments.length);}if(event.key==='ArrowLeft'){event.preventDefault();setSelected(i=>i===null?null:(i+weddingMoments.length-1)%weddingMoments.length);}};window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey);},[selected]);
+ return <section id="wedding-moments" className="moments-section page-width section-spacing">
+  <Reveal className="section-heading"><span className="eyebrow">LITTLE GLIMPSES OF WHAT’S TO COME</span><h2>Let the celebrations<br/><i>come to life.</i></h2><p>A little colour. A little music. A whole lot of love.<br/>Open a card and step into the moment.</p></Reveal>
+  <div className="moments-grid">{weddingMoments.map((moment,index)=><motion.button key={moment.image} type="button" className="moment-card" onClick={()=>setSelected(index)} initial={{opacity:0,y:reduced?0:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}} transition={{duration:.7,delay:(index%2)*.12,ease}} whileHover={reduced?undefined:{y:-6}} whileTap={reduced?undefined:{scale:.985}} aria-label={`Open ${moment.label} illustration`}><span className="moment-image"><img src={moment.image} alt={moment.label+' wedding watercolor illustration'} loading="lazy" width="1536" height="1024"/><span className="moment-open"><ArrowUpRight size={18}/></span></span><span className="moment-caption"><span><span className="small-label">{moment.label}</span><strong>{moment.title}</strong></span><span className="moment-index">0{index+1}</span></span></motion.button>)}</div>
+  <p className="gallery-note">A watercolor daydream of our celebrations.</p>
+  <AnimatePresence>{selected!==null&&<Dialog key="gallery" title="Wedding moments" className="gallery-dialog" onClose={closeGallery}><div className="gallery-image-stage"><AnimatePresence mode="wait" initial={false}><motion.img key={selected} src={weddingMoments[selected].image} alt={weddingMoments[selected].label+' wedding watercolor illustration'} initial={{opacity:0,scale:reduced?1:1.035}} animate={{opacity:1,scale:1}} exit={{opacity:0,scale:reduced?1:.985}} transition={{duration:.3,ease}}/></AnimatePresence></div><div className="gallery-copy"><span className="small-label">{weddingMoments[selected].date}</span><h2>{weddingMoments[selected].title}</h2><p>{weddingMoments[selected].description}</p><div className="gallery-navigation"><button onClick={()=>setSelected((selected+weddingMoments.length-1)%weddingMoments.length)} aria-label="Previous wedding moment">← <span>Previous</span></button><span aria-live="polite">{selected+1} / {weddingMoments.length}</span><button onClick={()=>setSelected((selected+1)%weddingMoments.length)} aria-label="Next wedding moment"><span>Next</span> →</button></div></div></Dialog>}</AnimatePresence>
+ </section>;
+}
+
 export default function App(){
   const [dialog,setDialog]=useState<'rsvp'|'card'|'blessings'|null>(null);
   const [openEvent,setOpenEvent]=useState(0);
@@ -195,6 +215,8 @@ export default function App(){
         </Reveal>)}</div>
         <Reveal className="little-quote"><Botanical/><p>“A thousand little moments<br/>led us to <i>this one.</i>”</p><span className="small-label">AND WE’RE SO GLAD YOU’RE A PART OF IT.</span></Reveal>
       </section>
+
+      <WeddingGallery/>
 
       <Families/>
 

@@ -9,7 +9,8 @@ A wedding invitation for Suryaveer and Ananya, built with React, TypeScript, Vit
 - Couple profiles, both families and expandable grandparents’ blessings.
 - Celebration details, seven vows, venue directions and calendar download.
 - RSVP and guestbook stored on the visitor’s device; no backend or automatic delivery to the family.
-- Optional synthesized background music and reduced-motion support.
+- Wedding watercolor gallery with animated popups, touch controls and keyboard navigation.
+- Optional synthesized dhol-inspired wedding drums and melody, volume control and reduced-motion support.
 
 ## Run locally
 
