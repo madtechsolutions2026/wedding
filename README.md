@@ -46,5 +46,6 @@ A separate invitation is available at `/dileep-arpitha/index.html`. Its source a
 - A prominent opening button, a close-up ceremony illustration, and a November calendar with the 22nd highlighted. The calendar download includes reminders one day and one hour before the wedding; guests import it into their own calendar app.
 - The couple's supplied “Rang hai rang hai Mangal rang hai” soundtrack starts with the opening tap and loops. Its file is `public/dileep-arpitha/assets/wedding-music.mp3`; `public/dileep-arpitha/config.js` controls the audio path and volume.
 - Mobile layouts, keyboard access, and reduced-motion support.
+- The second section features the couple's supplied portraits, edited with coordinated sage garden backgrounds and displayed in botanical arch frames. The hero scroll link leads directly to it.
 
 The existing Suryaveer and Ananya invitation remains at the root route. Review the new invitation's family details before sharing it with guests.
