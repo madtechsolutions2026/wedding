@@ -36,3 +36,14 @@ For static hosting, use `npm ci && npm run build` as the build command and `dist
 Wedding details and profiles are in `src/data/weddingData.ts`. The current page is implemented in `src/App.tsx` with styling in `src/App.css` and `src/index.css`. Images are in `public/images`.
 
 The names, event details and generated illustrations are demonstration content; replace them as needed before sharing a personal invitation.
+
+## Dileep & Arpitha — Garden invitation
+
+A separate invitation is available at `/dileep-arpitha/index.html`. Its source and local assets are in `public/dileep-arpitha/`; Vite includes this folder unchanged in the production build.
+
+- Wedding: 22 November 2026 at 10:25 a.m. IST, R.S. Gardens, Pati, Patancheru.
+- Animated floral doors, tap-responsive petals, English/Telugu text, countdown, calendar download, venue directions, and sharing.
+- Gentle original instrumental starts with the opening tap. To use the couple's chosen track, add the audio file to `public/dileep-arpitha/assets/` and set `audioSrc` in `public/dileep-arpitha/config.js`.
+- Mobile layouts, keyboard access, and reduced-motion support.
+
+The existing Suryaveer and Ananya invitation remains at the root route. Review the new invitation's family details before sharing it with guests.
