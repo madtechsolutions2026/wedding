@@ -43,6 +43,7 @@ A separate invitation is available at `/dileep-arpitha/index.html`. Its source a
 
 - Wedding: 22 November 2026 at 10:25 a.m. IST, R.S. Gardens, Pati, Patancheru.
 - Animated floral doors, tap-responsive petals, English/Telugu text, countdown, calendar download, venue directions, and sharing.
+- A prominent opening button, a close-up ceremony illustration, and a November calendar with the 22nd highlighted. The calendar download includes reminders one day and one hour before the wedding; guests import it into their own calendar app.
 - The couple's supplied “Rang hai rang hai Mangal rang hai” soundtrack starts with the opening tap and loops. Its file is `public/dileep-arpitha/assets/wedding-music.mp3`; `public/dileep-arpitha/config.js` controls the audio path and volume.
 - Mobile layouts, keyboard access, and reduced-motion support.
 
