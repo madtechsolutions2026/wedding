@@ -43,7 +43,7 @@ A separate invitation is available at `/dileep-arpitha/index.html`. Its source a
 
 - Wedding: 22 November 2026 at 10:25 a.m. IST, R.S. Gardens, Pati, Patancheru.
 - Animated floral doors, tap-responsive petals, English/Telugu text, countdown, calendar download, venue directions, and sharing.
-- Gentle original instrumental starts with the opening tap. To use the couple's chosen track, add the audio file to `public/dileep-arpitha/assets/` and set `audioSrc` in `public/dileep-arpitha/config.js`.
+- The couple's supplied “Rang hai rang hai Mangal rang hai” soundtrack starts with the opening tap and loops. Its file is `public/dileep-arpitha/assets/wedding-music.mp3`; `public/dileep-arpitha/config.js` controls the audio path and volume.
 - Mobile layouts, keyboard access, and reduced-motion support.
 
 The existing Suryaveer and Ananya invitation remains at the root route. Review the new invitation's family details before sharing it with guests.

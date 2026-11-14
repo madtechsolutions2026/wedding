@@ -1,2 +1,2 @@
-/* Add the supplied wedding track here when it is available. Leave empty to use the original gentle instrumental. */
-window.WEDDING_CONFIG = { audioSrc: '', musicVolume: 0.3 };
+/* The couple's supplied wedding soundtrack. Playback starts with the opening tap. */
+window.WEDDING_CONFIG = { audioSrc: 'assets/wedding-music.mp3', musicVolume: 0.3 };
